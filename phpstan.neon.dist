@@ -1,0 +1,12 @@
+includes:
+    - phpstan-baseline.neon
+    - tools/phpstan/vendor/phpstan/phpstan-phpunit/extension.neon
+
+
+parameters:
+	level: 8
+	paths:
+		- src
+		- tests
+	excludePaths:
+		- src/some-directory/*
