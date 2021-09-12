@@ -8,4 +8,5 @@ composer.lock
 /var
 /vendor/
 /tools/**/vendor/
-
+/docker/
+docker-compose.yml
