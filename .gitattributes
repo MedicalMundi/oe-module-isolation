@@ -8,8 +8,7 @@ phpstan.neon.dist export-ignore
 phpunit.xml.dist export-ignore
 psalm-baseline.xml export-ignore
 psalm.xml export-ignore
-phpunit.xml.dist export-ignore
-.docheader
+.docheader export-ignore
 
 /tools export-ignore
 
