@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer;
 use PhpCsFixer\Fixer\Import\NoUnusedImportsFixer;
+use PhpCsFixer\Fixer\Import\OrderedImportsFixer;
 use PhpCsFixer\Fixer\NamespaceNotation\BlankLineAfterNamespaceFixer;
 use PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer;
 use PhpCsFixer\Fixer\PhpTag\LinebreakAfterOpeningTagFixer;
@@ -36,6 +37,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(BlankLineAfterNamespaceFixer::class);
 
     $services->set(NoUnusedImportsFixer::class);
+
+    $services->set(OrderedImportsFixer::class);
 
     $services->set(StrictComparisonFixer::class);
 
