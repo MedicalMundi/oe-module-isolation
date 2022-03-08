@@ -29,7 +29,7 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0 || ^8.0 || ^9.5",
+        "phpunit/phpunit": "^9.5.18",
         "bamarni/composer-bin-plugin": "^1.4"
     },
     "license": "MIT",
