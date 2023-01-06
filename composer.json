@@ -8,6 +8,9 @@
         "psr/container": "^2.0"
     },
     "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true
+        },
         "preferred-install": {
             "*": "dist"
         },
