@@ -1,11 +1,25 @@
 {
     "name": "medicalmundi/brotea",
-    "description": "A library for OpenEMR modules",
     "type": "library",
-    "keywords": ["openemr", "openemr-module"],
+    "description": "A library for OpenEMR modules",
+    "keywords": [
+        "openemr",
+        "openemr-module"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zerai Teclai",
+            "email": "teclaizerai@gmail.com"
+        }
+    ],
     "require": {
         "php": "^8.1",
         "psr/container": "^2.0"
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.8",
+        "phpunit/phpunit": "^9.5"
     },
     "config": {
         "allow-plugins": {
@@ -32,16 +46,5 @@
         "psr-4": {
             "Brotea\\Tests\\": "tests/"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^7.0 || ^8.0 || ^9.5",
-        "bamarni/composer-bin-plugin": "^1.8"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Zerai Teclai",
-            "email": "teclaizerai@gmail.com"
-        }
-    ]
+    }
 }
