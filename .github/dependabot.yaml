@@ -3,14 +3,103 @@
 version: 2
 
 updates:
-  - commit-message:
-      include: "scope"
-      prefix: "composer"
+  - package-ecosystem: "composer"
+    target-branch: "main"
     directory: "/"
-    labels:
-      - "php dependency"
-    open-pull-requests-limit: 10
-    package-ecosystem: "composer"
+    versioning-strategy: "increase"
+    open-pull-requests-limit: 5
     schedule:
       interval: "daily"
+    assignees:
+      - "zerai"
+    commit-message:
+      include: "scope"
+      prefix: "composer"
+    labels:
+      - "php dependency"
+
+  ########################################################################################################################
+  #
+  #   Tools dependencies
+  #
+  ########################################################################################################################
+  - package-ecosystem: "composer"
+    target-branch: "main"
+    directory: "/tools/ecs"
     versioning-strategy: "increase"
+    open-pull-requests-limit: 1
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "zerai"
+    commit-message:
+      include: "scope"
+      prefix: "Tools - ecs"
+    labels:
+      - "tool dependency"
+
+  - package-ecosystem: "composer"
+    target-branch: "main"
+    directory: "/tools/phpstan"
+    versioning-strategy: "increase"
+    open-pull-requests-limit: 2
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "zerai"
+    commit-message:
+      include: "scope"
+      prefix: "Tools - phpstan"
+    labels:
+      - "tool dependency"
+
+  - package-ecosystem: "composer"
+    target-branch: "main"
+    directory: "/tools/psalm"
+    versioning-strategy: "increase"
+    open-pull-requests-limit: 2
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "zerai"
+    commit-message:
+      include: "scope"
+      prefix: "Tools - psalm"
+    labels:
+      - "tool dependency"
+
+  - package-ecosystem: "composer"
+    target-branch: "main"
+    directory: "/tools/rector"
+    versioning-strategy: "increase"
+    open-pull-requests-limit: 2
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "zerai"
+    commit-message:
+      include: "scope"
+      prefix: "Tools - rector"
+    labels:
+      - "tool dependency"
+
+
+  ########################################################################################################################
+  #
+  #   Github Actions dependencies
+  #
+  ########################################################################################################################
+  - package-ecosystem: "github-actions"
+    target-branch: "main"
+    versioning-strategy: "increase"
+    directory: "/"
+    open-pull-requests-limit: 5
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "zerai"
+    commit-message:
+      include: "scope"
+      prefix: "github-actions"
+    labels:
+      - "GHA dependency"
