@@ -34,7 +34,7 @@ updates:
       - "zerai"
     commit-message:
       include: "scope"
-      prefix: "Tools - ecs"
+      prefix: "Tools - ecs "
     labels:
       - "tool dependency"
 
@@ -49,7 +49,7 @@ updates:
       - "zerai"
     commit-message:
       include: "scope"
-      prefix: "Tools - phpstan"
+      prefix: "Tools - phpstan "
     labels:
       - "tool dependency"
 
@@ -64,7 +64,7 @@ updates:
       - "zerai"
     commit-message:
       include: "scope"
-      prefix: "Tools - psalm"
+      prefix: "Tools - psalm "
     labels:
       - "tool dependency"
 
@@ -79,7 +79,7 @@ updates:
       - "zerai"
     commit-message:
       include: "scope"
-      prefix: "Tools - rector"
+      prefix: "Tools - rector "
     labels:
       - "tool dependency"
 
@@ -91,7 +91,6 @@ updates:
   ########################################################################################################################
   - package-ecosystem: "github-actions"
     target-branch: "main"
-    versioning-strategy: "increase"
     directory: "/"
     open-pull-requests-limit: 5
     schedule:
