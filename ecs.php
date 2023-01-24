@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 use PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer;
 use PhpCsFixer\Fixer\Import\NoUnusedImportsFixer;
@@ -10,47 +8,37 @@ use PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer;
 use PhpCsFixer\Fixer\PhpTag\LinebreakAfterOpeningTagFixer;
 use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
 use PhpCsFixer\Fixer\Strict\StrictComparisonFixer;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\EasyCodingStandard\ValueObject\Option;
+use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $parameters = $containerConfigurator->parameters();
 
-    $parameters->set(Option::PATHS, [
+return static function (ECSConfig $ecsConfig): void {
+    $ecsConfig->paths([
         __DIR__ . '/src',
         __DIR__ . '/tests',
     ]);
 
-    $parameters->set(
-        'skip',
-        [
-            BlankLineAfterOpeningTagFixer::class,
-            LinebreakAfterOpeningTagFixer::class,
-        ]
-    );
+    $ecsConfig->skip([
+        BlankLineAfterOpeningTagFixer::class,
+        LinebreakAfterOpeningTagFixer::class,
+    ]);
 
-    $services = $containerConfigurator->services();
+    $ecsConfig->rules([
+        BlankLineAfterNamespaceFixer::class,
+        DeclareStrictTypesFixer::class,
+        NoUnusedImportsFixer::class,
+        OrderedImportsFixer::class,
+        StrictComparisonFixer::class,
+    ]);
 
-    $services->set(DeclareStrictTypesFixer::class);
+    $ecsConfig->ruleWithConfiguration(ArraySyntaxFixer::class, [
+        'syntax' => 'short',
+    ]);
 
-    $services->set(BlankLineAfterNamespaceFixer::class);
-
-    $services->set(NoUnusedImportsFixer::class);
-
-    $services->set(OrderedImportsFixer::class);
-
-    $services->set(StrictComparisonFixer::class);
-
-
-    $services->set(ArraySyntaxFixer::class)
-        ->call('configure', [[
-            'syntax' => 'short',
-        ]]);
-
-    // run and fix, one by one
-    $containerConfigurator->import(SetList::SPACES);
-    $containerConfigurator->import(SetList::ARRAY);
-    $containerConfigurator->import(SetList::DOCBLOCK);
-    $containerConfigurator->import(SetList::PSR_12);
+    $ecsConfig->sets([
+        SetList::ARRAY,
+        SetList::DOCBLOCK,
+        SetList::SPACES,
+        SetList::PSR_12,
+    ]);
 };
