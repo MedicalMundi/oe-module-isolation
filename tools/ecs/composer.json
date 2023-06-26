@@ -1,6 +1,6 @@
 {
     "require-dev": {
-        "symplify/easy-coding-standard": "^11.3"
+        "symplify/easy-coding-standard": "^11.5"
     },
     "config": {
         "preferred-install": {
